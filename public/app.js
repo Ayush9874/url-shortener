@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         button.disabled = true;
 
         try {
-            const res = await fetch('/shorten', {
+            const res = await fetch('/api/shorten', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ url: originalUrl })

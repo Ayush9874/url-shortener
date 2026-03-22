@@ -1,17 +1,3 @@
 {
-  "public": "public",
-  "rewrites": [
-    {
-      "source": "/shorten/:path*",
-      "destination": "/api/shorten/:path*"
-    },
-    {
-      "source": "/shorten",
-      "destination": "/api/shorten"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/public/$1"
-    }
-  ]
+  "version": 2
 }
