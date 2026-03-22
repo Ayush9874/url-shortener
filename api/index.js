@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const crypto = require('crypto');
-const db = require('../database');
+const db = require('./../database.js');
 
 const app = express();
 app.use(cors());
