@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (shortCode) {
         document.body.innerHTML = '<div class="redirecting">Redirecting you...</div>';
         try {
-            const res = await fetch(`/shorten/${shortCode}`);
+            const res = await fetch(`/api/shorten/${shortCode}`);
             if (res.ok) {
                 const data = await res.json();
                 window.location.replace(data.url);
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         button.disabled = true;
 
         try {
-            const res = await fetch('/shorten', {
+            const res = await fetch('/api/shorten', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ url: originalUrl })
