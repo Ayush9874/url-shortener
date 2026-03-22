@@ -2,8 +2,16 @@
   "public": "public",
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "/api"
+      "source": "/shorten/:path*",
+      "destination": "/api/shorten/:path*"
+    },
+    {
+      "source": "/shorten",
+      "destination": "/api/shorten"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/public/$1"
     }
   ]
 }
