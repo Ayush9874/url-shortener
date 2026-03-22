@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snip | Premium URL Shortener</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    
+    <main class="glass-panel">
+        <h1>Snip</h1>
+        <p>Shorten your links with style.</p>
+        
+        <form id="shorten-form">
+            <input type="url" id="url-input" placeholder="Paste your long URL here..." required>
+            <button type="submit">Shorten</button>
+        </form>
+
+        <div id="result-container" class="hidden">
+            <p>Your beautiful short link is ready:</p>
+            <div class="result-box">
+                <a id="short-url" href="#" target="_blank"></a>
+                <button id="copy-btn">Copy</button>
+            </div>
+            <p id="stats-info" class="stats-text"></p>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
