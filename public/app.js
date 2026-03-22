@@ -1,8 +1,4 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // Detect environment and set API base URL
-    const isVercel = window.location.hostname.includes('vercel.app');
-    const apiBase = isVercel ? '/api' : '';
-    
     // 1. Check if there is a shortcode in the query param
     const urlParams = new URLSearchParams(window.location.search);
     const shortCode = urlParams.get('c');
@@ -11,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (shortCode) {
         document.body.innerHTML = '<div class="redirecting">Redirecting you...</div>';
         try {
-            const res = await fetch(`${apiBase}/shorten/${shortCode}`);
+            const res = await fetch(`/api/shorten/${shortCode}`);
             if (res.ok) {
                 const data = await res.json();
                 window.location.replace(data.url);
@@ -41,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         button.disabled = true;
 
         try {
-            const res = await fetch(`${apiBase}/shorten`, {
+            const res = await fetch('/api/shorten', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ url: originalUrl })

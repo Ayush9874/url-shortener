@@ -23,7 +23,7 @@ function formatUrlResponse(row) {
 }
 
 // Create short URL
-app.post('/shorten', async (req, res) => {
+app.post('/api/shorten', async (req, res) => {
     const { url } = req.body;
     if (!url) return res.status(400).json({ error: 'URL is required' });
     try {
@@ -58,7 +58,7 @@ app.post('/shorten', async (req, res) => {
 });
 
 // Retrieve original URL
-app.get('/shorten/:shortCode', async (req, res) => {
+app.get('/api/shorten/:shortCode', async (req, res) => {
     try {
         const row = await db.get('SELECT * FROM urls WHERE shortCode = ?', [req.params.shortCode]);
         if (!row) {
@@ -74,7 +74,7 @@ app.get('/shorten/:shortCode', async (req, res) => {
 });
 
 // Get URL Statistics (Must be defined before /shorten/:shortCode if using the same base, wait, /shorten/:shortCode/stats is more specific so it won't conflict with /shorten/:shortCode. It conflicts if we had /shorten/stats. The current order is fine, but let's move it to avoid express routing bugs). Actually /shorten/:shortCode doesn't match /shorten/:shortCode/stats.
-app.get('/shorten/:shortCode/stats', async (req, res) => {
+app.get('/api/shorten/:shortCode/stats', async (req, res) => {
     try {
         const row = await db.get('SELECT * FROM urls WHERE shortCode = ?', [req.params.shortCode]);
         if (!row) return res.status(404).json({ error: 'Short URL not found' });
@@ -89,7 +89,7 @@ app.get('/shorten/:shortCode/stats', async (req, res) => {
 });
 
 // Update Short URL
-app.put('/shorten/:shortCode', async (req, res) => {
+app.put('/api/shorten/:shortCode', async (req, res) => {
     const { url } = req.body;
     if (!url) return res.status(400).json({ error: 'URL is required' });
     try {
@@ -113,7 +113,7 @@ app.put('/shorten/:shortCode', async (req, res) => {
 });
 
 // Delete Short URL
-app.delete('/shorten/:shortCode', async (req, res) => {
+app.delete('/api/shorten/:shortCode', async (req, res) => {
     try {
         const row = await db.get('SELECT id FROM urls WHERE shortCode = ?', [req.params.shortCode]);
         if (!row) return res.status(404).json({ error: 'Short URL not found' });
