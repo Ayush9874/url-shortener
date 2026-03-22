@@ -23,17 +23,20 @@ A sleek and modern URL shortener built with Node.js, Express, and SQLite. Featur
 ## 📦 Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/Ayush9874/url-shortener.git
    cd url-shortener
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start the server**
+
    ```bash
    node server.js
    ```
@@ -46,6 +49,7 @@ A sleek and modern URL shortener built with Node.js, Express, and SQLite. Featur
 ## 📚 API Endpoints
 
 ### Create Short URL
+
 ```http
 POST /shorten
 Content-Type: application/json
@@ -56,16 +60,19 @@ Content-Type: application/json
 ```
 
 ### Get Original URL (Redirect)
+
 ```http
 GET /shorten/:shortCode
 ```
 
 ### Get URL Statistics
+
 ```http
 GET /shorten/:shortCode/stats
 ```
 
 ### Update Short URL
+
 ```http
 PUT /shorten/:shortCode
 Content-Type: application/json
@@ -76,6 +83,7 @@ Content-Type: application/json
 ```
 
 ### Delete Short URL
+
 ```http
 DELETE /shorten/:shortCode
 ```
@@ -144,4 +152,4 @@ This project is licensed under the ISC License.
 
 - Design inspired by modern glassmorphism trends
 - Built with love for clean, efficient URL shortening</content>
-<parameter name="filePath">c:\Users\AYUSH BHATTACHARYYA\OneDrive\Documents\projects\url-shortener\README.md
+  <parameter name="filePath">c:\Users\AYUSH BHATTACHARYYA\OneDrive\Documents\projects\url-shortener\README.md
