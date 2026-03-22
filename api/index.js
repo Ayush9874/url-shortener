@@ -21,7 +21,7 @@ function formatUrlResponse(row) {
     };
 }
 
-app.post('/shorten', async (req, res) => {
+app.post('/api/shorten', async (req, res) => {
     const { url } = req.body;
     if (!url) return res.status(400).json({ error: 'URL is required' });
 
@@ -56,7 +56,7 @@ app.post('/shorten', async (req, res) => {
     }
 });
 
-app.get('/shorten/:shortCode', async (req, res) => {
+app.get('/api/shorten/:shortCode', async (req, res) => {
     try {
         const row = await db.get('SELECT * FROM urls WHERE shortCode = ?', [req.params.shortCode]);
         if (!row) return res.status(404).json({ error: 'Short URL not found' });
@@ -68,7 +68,7 @@ app.get('/shorten/:shortCode', async (req, res) => {
     }
 });
 
-app.get('/shorten/:shortCode/stats', async (req, res) => {
+app.get('/api/shorten/:shortCode/stats', async (req, res) => {
     try {
         const row = await db.get('SELECT * FROM urls WHERE shortCode = ?', [req.params.shortCode]);
         if (!row) return res.status(404).json({ error: 'Short URL not found' });
@@ -82,7 +82,7 @@ app.get('/shorten/:shortCode/stats', async (req, res) => {
     }
 });
 
-app.put('/shorten/:shortCode', async (req, res) => {
+app.put('/api/shorten/:shortCode', async (req, res) => {
     const { url } = req.body;
     if (!url) return res.status(400).json({ error: 'URL is required' });
     try {
@@ -105,7 +105,7 @@ app.put('/shorten/:shortCode', async (req, res) => {
     }
 });
 
-app.delete('/shorten/:shortCode', async (req, res) => {
+app.delete('/api/shorten/:shortCode', async (req, res) => {
     try {
         const row = await db.get('SELECT id FROM urls WHERE shortCode = ?', [req.params.shortCode]);
         if (!row) return res.status(404).json({ error: 'Short URL not found' });

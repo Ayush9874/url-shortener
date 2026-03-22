@@ -1,3 +1,9 @@
 {
-  "public": "public"
+  "public": "public",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api"
+    }
+  ]
 }

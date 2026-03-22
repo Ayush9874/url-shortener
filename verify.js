@@ -1,5 +1,5 @@
 async function runTests() {
-    const baseUrl = 'http://localhost:3000/shorten';
+    const baseUrl = 'http://localhost:3000/api/shorten';
     
     console.log('Running API Tests...\n');
 
